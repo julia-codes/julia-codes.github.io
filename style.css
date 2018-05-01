@@ -1,0 +1,28 @@
+body{
+    width: 75%;
+    text-align: center;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+div{
+    height: 500px;
+}
+.jump{
+    font-size: 80px;
+    text-align: center;
+}
+h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 120px;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+a {
+    font-size: 80px;
+    text-decoration: none;
+    color: black;
+}
