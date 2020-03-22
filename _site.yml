@@ -1,0 +1,8 @@
+name: "julia-codes-ds"
+navbar: 
+  title: "Julia Layne - Data Scientist Profile"
+  left: 
+    - text: "Info"
+      href: index.html
+    - text: "Breweries Study"
+      href: AmericanBreweryStudy.html
