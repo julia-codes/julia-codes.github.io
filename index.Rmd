@@ -1,7 +1,5 @@
 ---
-title: "Data Scientist Info Page"
-author: "Julia Layne"
-date: "3/22/2020"
+title: "Julia Codes"
 output: html_document
 ---
 
@@ -9,22 +7,40 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+# Info
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Hello, I am Julia-Codes on GitHub and most developer platforms. I'm a full stack developer working to become a data scientist.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Education
+I have a Bachelor's in Computer Science from the University of Oklahom. Currently working on my Master's in Data Science at SMU. 
 
-```{r cars}
-summary(cars)
-```
+## Work
+I've worked as an Integration Engineer on medical software, an administrator for loan origination software, and am currently a full stack Java developer for a pet pharmaceutical company. Agile development is my favorite approach to projects and production support of software. 
 
-## Including Plots
+### Technical Expertise
+ - Java
+ - Groovy
+ - Vaadin
+ - JavaScript
+ - MSSQL and mySQL Servers
+ - Docker
+ - GitLab and GitHub
+ - R
+ - SAS
+ - C#
+ - Ruby
+ - Python
 
-You can also embed plots, for example:
+## Interests
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+Getting more women into coding and technical professions is a passion of mine. I run a [RailsBridge]('http://railsbridgetulsa.org') workshop helping women learn Ruby and volunteer at [Django Girls]('https://djangogirls.org/tulsa/') teaching Python. Every second Sunday you can find me at [SheCodesTulsa]('https://www.shecodestulsa.org') presenting or learning from another awesome coder presenting to a room of women ranging from newbies to seasoned coders.
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Everyone needs a break from computers sometimes, hiking around the Ozark's is a great way to get out cell range and block out Slack notifications. I hope to do a section of the Ouachita National Recreation Trail this year. 
+
+# Projects
+
+Browse through the tabs above to see projects I'm working on
+
+[American Brewery Study]('AmericanBreweryStudy.html')
+
+A study of craft beers in the United States, mocking up a presentation to Budweiser to plan for a Bud branded IPA.

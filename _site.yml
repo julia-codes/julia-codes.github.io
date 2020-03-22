@@ -1,6 +1,6 @@
 name: "julia-codes-ds"
 navbar: 
-  title: "Julia Layne - Data Scientist Profile"
+  title: "Data Scientist Profile"
   left: 
     - text: "Info"
       href: index.html
