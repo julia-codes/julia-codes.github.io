@@ -309,6 +309,10 @@ $(document).ready(function () {
 <h3>“It is my aim to win the American people over … to make them all lovers of beer.” - Adolphus Busch (1905)</h3>
 <p><a href="https://www.budweiser.com/en/our-legacy.html">Referenced From Budweiser’s Website</a></p>
 </div>
+<div id="r-shiny-interactive" class="section level3">
+<h3>R Shiny Interactive</h3>
+<p><a href="&#39;https://julia-codes.shinyapps.io/breweryinteractive/&#39;">Interactive Brewery App</a></p>
+</div>
 </div>
 </div>
 <div id="questions" class="section level1">
@@ -410,7 +414,7 @@ detach(brew_count_by_state)
 plot_usmap(data = brew_count_fips,  values = &quot;n&quot;, color = rgb(.2, .7, 1)) + 
     labs(title = &quot;Breweries by State&quot;, subtitle = &quot;Count of Breweries per state&quot;) + 
   scale_fill_continuous(low = &quot;white&quot;, high = rgb(.2, .7, 1), name = &quot;Breweries by State&quot;, label = scales::comma) + theme(legend.position = &quot;right&quot;)</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 </div>
 </div>
 <div id="merge-beer-and-brewery-data" class="section level2">
@@ -493,19 +497,19 @@ paste(&#39;ABV Missing - &#39;,sum(is.na(Beer2$ABV)))</code></pre>
 <div id="bar-charts-of-abv-and-ibu" class="section level3">
 <h3>Bar Charts of ABV and IBU</h3>
 <pre class="r"><code>Meds %&gt;% ggplot(aes(x=reorder(State,Median_ABV), y=Median_ABV,fill = Meds$Median_ABV)) + scale_colour_gradient()+ geom_col(show.legend = FALSE) + ggtitle(&quot;Median ABV by State&quot;) + xlab(&quot;State&quot;) + ylab(&quot;Median ABV&quot;) + theme(axis.text.x = element_text(angle=90, size=8, vjust = .5))</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 <pre class="r"><code>Meds %&gt;% ggplot(aes(x=reorder(State,Median_IBU), y=Median_IBU,fill = Meds$Median_IBU)) + scale_colour_gradient()+ geom_col(show.legend = FALSE) + ggtitle(&quot;Median IBU by State&quot;) + xlab(&quot;State&quot;) + ylab(&quot;Median IBU&quot;) + theme(axis.text.x = element_text(angle=90, size=8, vjust = .5))</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-43-2.png" width="672" /></p>
 <p>With these Medians, we have charted the states to better view the distributions geographically. South Dakota is missing from the IBU map. Given that 40% of the beers didn’t have IBU values and many states only had one brewery, like South Dakota, it isn’t surprising there is a state missing from this map.</p>
 <pre class="r"><code>Meds$fips &lt;- fips(trimws(as.character(Meds$State)))
 plot_usmap(data = Meds,  values = &quot;Median_IBU&quot;, color = rgb(.2, .7, 1)) + 
     labs(title = &quot;Median IBU by State&quot;, subtitle = &quot;International Bitterness Units&quot;) + 
   scale_fill_continuous(low = &quot;white&quot;, high = rgb(.2, .7, 1), name = &quot;IBU&quot;, label = scales::comma) + theme(legend.position = &quot;right&quot;)</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <pre class="r"><code>plot_usmap(data = Meds,  values = &quot;Median_ABV&quot;, color = rgb(.2, .7, 1)) + 
     labs(title = &quot;Median ABV by State&quot;, subtitle = &quot;Alcohol by Volume&quot;) + 
   scale_fill_continuous(low = &quot;white&quot;, high = rgb(.2, .7, 1), name = &quot;ABV&quot;, label = scales::comma) + theme(legend.position = &quot;right&quot;)</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-44-2.png" width="672" /></p>
 </div>
 </div>
 <div id="which-state-has-the-maximum-alcoholic-abv-beer-which-state-has-the-most-bitter-ibu-beer" class="section level2">
@@ -546,14 +550,14 @@ paste(&#39;States with the highest median IBU: &#39;, topMedIBU, &#39; - &#39;, 
 <pre class="r"><code>sd(Beer2$ABV, na.rm = TRUE) #Standard deviation</code></pre>
 <pre><code>## [1] 0.01354173</code></pre>
 <pre class="r"><code>hist(Beer2$ABV, breaks = 20, main = &quot;Distribution of Alcohol Content&quot;, xlab = &quot;Alcohol By Volume&quot;)</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 </div>
 <div id="assess-any-relationship-between-abv-and-ibu.-note-we-are-removing-entries-with-missing-values." class="section level2">
 <h2>7. Assess any relationship between ABV and IBU. Note: We are removing entries with missing values.</h2>
 <p>Based on a scatter plot of ABV vs IBU, there does appear to be evidence of a moderate positive correlation. The ABV looks like it trends upward as IBU increases. The calculated correlation coefficient of .67 supports this.</p>
 <pre class="r"><code>#Scatter plot with linear model
 Beer2 %&gt;% ggplot(aes(x=IBU, y=ABV, fill = ABV)) + scale_colour_gradient()+ geom_point() + geom_smooth(method = lm) + ggtitle(&quot;IBU vs ABV&quot;) + xlab(&quot;IBU&quot;) + ylab(&quot;ABV&quot;)</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
 <pre class="r"><code>#Correlation of IBU and ABV
 Beer3 &lt;- Beer2 %&gt;% filter(!is.na(Beer2$ABV))
 Beer3 &lt;- Beer3 %&gt;% filter(!is.na(Beer3$IBU))
@@ -607,7 +611,7 @@ for(i in 1:numks)
 <pre class="r"><code>MeanAcc = colMeans(masterAcc)
 #plot k vs accuracy and identify k with highest accuracy
 plot(seq(1,numks,1),MeanAcc, type = &quot;l&quot;, main=&quot;Accuracy of KNN model vs K value&quot;)</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 <pre class="r"><code>paste(&quot;Highest Accuraccy K Value is &quot;, which.max(MeanAcc))</code></pre>
 <pre><code>## [1] &quot;Highest Accuraccy K Value is  5&quot;</code></pre>
 <p>Using a KNN model with k=5, we could categorize beers into IPAs or Non-IPA Ales with about 87% accuracy using only IBU and ABV. This indicates that on average, there is a clear enough distinction between IPAs and other Ales in their combination of ABV and IBU to be able to reasonably identify an IPA from a different Ale based on these variables alone.</p>
@@ -651,7 +655,7 @@ confusionMatrix(table(classif,testBeer$Category))</code></pre>
 <h3>Plotting IPAs vs other Ales</h3>
 <pre class="r"><code>Beer4 %&gt;%
   ggplot(aes(x = IBU, y=ABV, color=Category)) + geom_point() + ggtitle(&quot;IBU vs. ABV for IPAs and Other Ales&quot;) +theme_stata()</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -670,15 +674,15 @@ IPAtest &lt;- Beer3 %&gt;% filter(Beer3$Style == &quot;American IPA&quot; | Beer
 
 IPAtest %&gt;% 
   ggplot(aes(x = Style, y=IBU, fill=Style)) + geom_boxplot(color=&quot;black&quot;, show.legend = FALSE) + ggtitle(&quot;Bitterness Distribution of Pale Ales&quot;) +theme_stata()</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
 <pre class="r"><code># Boxplots of ABV for 3 different PAs
 IPAtest %&gt;% 
   ggplot(aes(x = Style, y=ABV, fill=Style)) + geom_boxplot(color=&quot;black&quot;, show.legend = FALSE) + ggtitle(&quot;Alcohol by Volume Distribution of Pale Ales&quot;) +theme_stata()</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <pre class="r"><code>#Relationship of ABV and IBU for the 3 groups
 IPAtest %&gt;% 
   ggplot(aes(x = IBU, y=ABV, color=Style)) + geom_point() + ggtitle(&quot;Alcohol by Volume Distribution of Pale Ales&quot;) +theme_stata()</code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
 <p>All of the plots show distinct separate groups for the 3 styles for both ABV and IBU. We can confirm whether or not there are any significant differences between the groups with an ANOVA.</p>
 <p>See Appendix for assumption checks to confirm ANOVA can be performed <a href="#anova-ibu-checks">IBU ANOVA Checks</a> <a href="#anova-abv-checks">ABV ANOVA Checks</a></p>
 <div id="anova-on-ibu-for-the-3-groups" class="section level3">
@@ -1246,12 +1250,12 @@ beertypes[order(beertypes)]</code></pre>
 <div id="anova-ibu-checks" class="section level2">
 <h2>ANOVA IBU CHECKS</h2>
 <pre class="r"><code>plot(IPAtest_IBU) #for checking assumptions for ANOVA </code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-30-1.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-30-2.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-30-3.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-30-4.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-64-1.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-64-2.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-64-3.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-64-4.png" width="672" /></p>
 </div>
 <div id="anova-abv-checks" class="section level2">
 <h2>ANOVA ABV CHECKS</h2>
 <pre class="r"><code>plot(IPAtest_ABV) #for checking assumptions for ANOVA </code></pre>
-<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-31-1.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-31-2.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-31-3.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-31-4.png" width="672" /></p>
+<p><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-65-1.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-65-2.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-65-3.png" width="672" /><img src="AmericanBreweryStudy_files/figure-html/unnamed-chunk-65-4.png" width="672" /></p>
 </div>
 </div>
 

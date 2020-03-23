@@ -43,4 +43,5 @@ Browse through the tabs above to see projects I'm working on
 
 [American Brewery Study]('AmericanBreweryStudy.html')
 
+
 A study of craft beers in the United States, mocking up a presentation to Budweiser to plan for a Bud branded IPA.

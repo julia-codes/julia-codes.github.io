@@ -19,6 +19,11 @@ In our review we found many beers were missing information on their IBU. This sc
 ### "It is my aim to win the American people over ... to make them all lovers of beer." - Adolphus Busch (1905)
 [Referenced From Budweiser's Website](https://www.budweiser.com/en/our-legacy.html)
 
+
+### R Shiny Interactive
+[Interactive Brewery App]('https://julia-codes.shinyapps.io/breweryinteractive/')
+
+
 # Questions
 Here are the specific questions you requested, above each you will find a brief explanation of the code contained to generate the data.
 
@@ -378,6 +383,7 @@ In our review we found many beers were missing information on their IBU. This sc
 ```{r}
 breweries
 beers
+
 ```
 
 ## Median ABV
