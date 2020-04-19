@@ -6,3 +6,5 @@ navbar:
       href: index.html
     - text: "Breweries Study"
       href: AmericanBreweryStudy.html
+    - text: "Attrition Case Study"
+      href: DDSAnalyticsEDA.html
